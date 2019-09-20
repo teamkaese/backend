@@ -2,8 +2,9 @@
 2019 Bremen Germany template for REST Server
 */
 let express = require('express');
-const mongoose = require('mongoose');
-const api = require("./routes/api")
+const api = require("./routes/api");
+const mongodb = require("./mongoDB");
+
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -17,7 +18,15 @@ app.listen(port, function () {
 
 const uri = "mongodb://localhost:27017/warehouse";
 
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+const mongoDB = new mongodb(uri);
+
+mongoDB.saveContainer({
+  id:'12123',
+  productCategory:'Emmentaler',
+  position:{groundPos:'A3',level:'3'},
+  admissionDate:new Date('December 17, 1995 03:24:00'),
+  productStage:'riping'
+})
 
 app.use('/', api)
 app.use(express.json());
