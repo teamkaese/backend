@@ -2,19 +2,17 @@
 2019 Bremen Germany template for REST Server
 */
 let express = require('express');
-
-const port = process.env.PORT || 8080;
+const isProduction = process.env.NODE_ENV === 'production';
 
 let app = express();
 
-// First get request
-app.get('/', function (req, res) {
-  res.send('Server is listening!');
-});
+var api = require('./routes/api');
 
+const port = process.env.PORT || 8080;
 
-let http = require('http');
 
 app.listen(port, function () {
   console.log('Example app listening on port ' + port);
 });
+
+app.use('/', api)
