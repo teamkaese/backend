@@ -5,12 +5,10 @@ function mongeDB (url) {
 
     const Container = mongoose.model('Container',{id: String,
                                                  productCategory:String,
-                                                 position:{
-                                                     groundPos:String,
-                                                     level:Number
-                                                 },
-                                                 admissionDate:Date,
-                                                 productStage:String})
+                                                 description: String,
+                                                 storageNumber: String,
+                                                 expirationDay: Date,
+                                                 admissionDate: Date})
 
 
     this.saveContainer = (contain) => {
