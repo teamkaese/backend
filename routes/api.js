@@ -18,10 +18,10 @@ router.post('/api', function(req, res, next){
   res.json({status: "200"});
 });
 
-router.delete('/api', function(req, res, next){
-  console.log(req.body);
+router.delete('/api/:id', function(req, res, next){
+  console.log(req.params.id);
   let db = req.app.locals.db;
-  db.deleteContainer(req.body.id);
+  db.deleteContainer(req.params.id);
   res.json({status: "204"});
 });
 
