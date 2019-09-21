@@ -23,6 +23,12 @@ function mongeDB (url) {
            cb(arr);
         });
     };
+    this.getByCategory = function(category, cb) {
+        Container.find({productCategory: category}, function(err, arr){
+            cb(arr);
+        });
+    };
+
     this.deleteContainer = (containerId) => {
         Container.deleteOne({id: containerId}, function(){
             console.log("Deleted!");

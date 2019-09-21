@@ -68,10 +68,21 @@ router.put('/api', function(req, res, next){
 router.get('/api/all', function(req, res, next){
   console.log("Inside get /api/all");
   let db = req.app.locals.db;
-  let cb = function (dd) {
-    res.send((dd));
+  let query = req.query.category;
+  if(query != undefined){
+    console.log(query);
+    let fun = function (aa){
+      res.send((aa));
+    };
+    db.getByCategory(query, fun);
+
+  }else{
+   console.log("All Data");
+    let cb = function (dd) {
+      res.send((dd));
+    }
+    db.getAllContainers(cb);
   }
-  db.getAllContainers(cb);
 });
 
 module.exports = router;
