@@ -8,6 +8,7 @@ router.get('/api', function(req, res, next) {
 
 // Get one Item by ID
 router.get('/api/get/:id', function(req, res, next){
+  console.log("Inside GET by ID");
   let db = req.app.locals.db;
   let cb = function (dd) {
     res.send((dd));

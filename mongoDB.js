@@ -8,7 +8,8 @@ function mongeDB (url) {
                                                  description: String,
                                                  storageNumber: String,
                                                  expirationDay: Date,
-                                                 admissionDate: Date})
+                                                 admissionDate: Date,
+                                                 isEmpty: Boolean})
 
 
     this.saveContainer = (contain) => {
@@ -31,6 +32,7 @@ function mongeDB (url) {
             cb(item);
         });
     };
+    this.update
 }
 
 module.exports = mongeDB;
