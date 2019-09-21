@@ -6,6 +6,15 @@ router.get('/api', function(req, res, next) {
   console.log("From Client: " + req.body);
 });
 
+// Get one Item by ID
+router.get('/api/get/:id', function(req, res, next){
+  let db = req.app.locals.db;
+  let cb = function (dd) {
+    res.send((dd));
+  }
+  db.findOneContainer(req.params.id, cb)
+})
+
 router.post('/api', function(req, res, next){
   let db = req.app.locals.db;
   db.saveContainer({
@@ -18,7 +27,7 @@ router.post('/api', function(req, res, next){
   res.json({status: "200"});
 });
 
-router.delete('/api/:id', function(req, res, next){
+router.delete('/api/container/:id', function(req, res, next){
   console.log(req.params.id);
   let db = req.app.locals.db;
   db.deleteContainer(req.params.id);
@@ -31,6 +40,7 @@ router.put('/api', function(req, res, next){
 
 // Get all items
 router.get('/api/all', function(req, res, next){
+  console.log("Inside get /api/all");
   let db = req.app.locals.db;
   let cb = function (dd) {
     res.send((dd));

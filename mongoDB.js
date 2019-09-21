@@ -28,8 +28,11 @@ function mongeDB (url) {
             console.log("Deleted!");
         });
     };
-
-
+    this.findOneContainer = function(containerId,cb) {
+        Container.findOne({id: containerId}, function(err, item){
+            cb(item);
+        });
+    };
 }
 
 module.exports = mongeDB;

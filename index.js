@@ -20,7 +20,7 @@ const mongoDB = new mongodb(uri);
 
 app.locals.db = mongoDB;
 
-/*
+
 mongoDB.saveContainer({
   id:'12123',
   productCategory:'Emmentaler',
@@ -28,8 +28,6 @@ mongoDB.saveContainer({
   admissionDate:new Date('December 17, 1995 03:24:00'),
   productStage:'riping'
 });
-*/
-//mongoDB.deleteContainer("12123");
 
 // parse various different custom JSON types as JSON
 app.use(bodyParser.json({ type: 'application/*+json' }))
