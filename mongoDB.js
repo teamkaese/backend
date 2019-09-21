@@ -20,10 +20,14 @@ function mongeDB (url) {
 
     this.getAllContainers = function(cb) {
        Container.find({}, function(err, arr) {
-           console.log(err);
            cb(arr);
         });
-    } 
+    };
+    this.deleteContainer = (containerId) => {
+        Container.deleteOne({id: containerId}, function(){
+            console.log("Deleted!");
+        });
+    };
 
 
 }

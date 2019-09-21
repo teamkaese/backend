@@ -4,6 +4,7 @@
 let express = require('express');
 const api = require("./routes/api");
 const mongodb = require("./mongoDB");
+const bodyParser = require('body-parser')
 
 let app = express();
 
@@ -19,6 +20,7 @@ const mongoDB = new mongodb(uri);
 
 app.locals.db = mongoDB;
 
+/*
 mongoDB.saveContainer({
   id:'12123',
   productCategory:'Emmentaler',
@@ -26,7 +28,16 @@ mongoDB.saveContainer({
   admissionDate:new Date('December 17, 1995 03:24:00'),
   productStage:'riping'
 });
+*/
+//mongoDB.deleteContainer("12123");
+
+// parse various different custom JSON types as JSON
+app.use(bodyParser.json({ type: 'application/*+json' }))
 
 
 app.use('/', api)
 app.use(express.json());
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());

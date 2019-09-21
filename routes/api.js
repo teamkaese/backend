@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/api', function(req, res, next) {
-  res.send('Server Data');
+  res.json({status: "200"});
   console.log("From Client: " + req.body);
 });
 
@@ -16,6 +16,13 @@ router.post('/api', function(req, res, next){
     productStage:'riping'
   });
   res.json({status: "200"});
+});
+
+router.delete('/api', function(req, res, next){
+  console.log(req.body);
+  let db = req.app.locals.db;
+  db.deleteContainer(req.body.id);
+  res.json({status: "204"});
 });
 
 router.put('/api', function(req, res, next){
