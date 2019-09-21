@@ -18,6 +18,7 @@ app.listen(port, function () {
 
 const uri = "mongodb://localhost:27017/warehouse";
 
+<<<<<<< Updated upstream
 const mongoDB = new mongodb(uri);
 
 mongoDB.saveContainer({
@@ -27,6 +28,9 @@ mongoDB.saveContainer({
   admissionDate:new Date('December 17, 1995 03:24:00'),
   productStage:'riping'
 })
+=======
+mongoose.connect(uri);
+>>>>>>> Stashed changes
 
 app.use('/', api)
 app.use(express.json());
