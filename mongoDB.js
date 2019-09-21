@@ -19,6 +19,7 @@ function mongeDB (url) {
 
     this.getAllContainers = function(cb) {
        Container.find({}, function(err, arr) {
+           arr.sort((x,y) => {x.expirationDay > y.expirationDay})
            cb(arr);
         });
     };
