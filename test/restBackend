@@ -1,1 +1,2 @@
 delete: curl -X DELETE -H 'Content-Type: application/x-www-form-urlencoded' -i http://localhost:8080/api/12123
+filter category: curl -X GET -H 'Content-Type: application/json' -i 'http://localhost:8080/api/all?category=Maasdammer'
