@@ -26,10 +26,19 @@ mongoDB.saveContainer({
   productCategory:'Emmentaler',
   position:{groundPos:'A3',level:'3'},
   admissionDate:new Date('December 17, 1995 03:24:00'),
-  productStage:'riping'
-  
+  productStage:'riping',
+  expirationDate:new Date('December 17, 1997 03:24:00')
 });
-i
+
+mongoDB.saveContainer({
+  id:'122123',
+  productCategory:'Maasdammer',
+  position:{groundPos:'A3',level:'4'},
+  admissionDate:new Date('December 17, 1995 03:24:00'),
+  productStage:'riping',
+  expirationDate:new Date('December 17, 1998 03:24:00')
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

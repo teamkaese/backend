@@ -7,7 +7,7 @@ function mongeDB (url) {
                                                  productCategory:String,
                                                  description: String,
                                                  storageNumber: String,
-                                                 expirationDay: Date,
+                                                 expirationDate: Date,
                                                  admissionDate: Date})
 
 
@@ -18,6 +18,7 @@ function mongeDB (url) {
 
     this.getAllContainers = function(cb) {
        Container.find({}, function(err, arr) {
+           arr.sort((x,y) => {x.expirationDay > y.expirationDay})
            cb(arr);
         });
     };
