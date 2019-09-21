@@ -24,7 +24,11 @@ router.put('/api', function(req, res, next){
 
 // Get all items
 router.get('/api/all', function(req, res, next){
-  
+  let db = req.app.locals.db;
+  let cb = function (dd) {
+    res.send((dd));
+  }
+  db.getAllContainers(cb);
 });
 
 module.exports = router;

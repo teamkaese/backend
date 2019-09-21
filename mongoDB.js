@@ -18,9 +18,10 @@ function mongeDB (url) {
         container.save().then(() => console.log('saved'));
     };
 
-    this.getAllContainers = () => {
+    this.getAllContainers = function(cb) {
        Container.find({}, function(err, arr) {
-            console.log(arr);
+           console.log(err);
+           cb(arr);
         });
     } 
 

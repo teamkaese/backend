@@ -19,8 +19,6 @@ const mongoDB = new mongodb(uri);
 
 app.locals.db = mongoDB;
 
-mongoDB.getAllContainers();
-
 mongoDB.saveContainer({
   id:'12123',
   productCategory:'Emmentaler',
