@@ -1,14 +1,17 @@
 function mongeDB (url) {
 
+
     const mongoose = require('mongoose');
     mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true });
 
     const Container = mongoose.model('Container',{id: String,
                                                  productCategory:String,
+                                                 position: {groundPos: String, level: String},
                                                  description: String,
                                                  storageNumber: String,
                                                  expirationDay: Date,
                                                  admissionDate: Date,
+                                                 productStage: String,
                                                  isEmpty: Boolean})
 
 
@@ -43,6 +46,32 @@ function mongeDB (url) {
         const container = new Container(contain);
         Container.updateOne(container);
     };
+
+
+    this.getCategroryList = function(cb) {
+
+        function onlyUnique(value, index, self) { 
+            return self.indexOf(value) === index;
+        }
+
+        Container.find({}, 'productCategory',function(err, arr){
+                let filtered = arr.map(x => x.productCategory).filter(onlyUnique);
+                cb(filtered);
+        })
+         };
+
+
+
+
+         /*
+    this.getCategroryList = function(cb) {
+        Container.find({}, function(err, arr){
+
+                cb(arr);
+        }).select('productCategory')
+         };
+*/         
 }
+
 
 module.exports = mongeDB;

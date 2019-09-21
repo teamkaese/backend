@@ -27,7 +27,9 @@ mongoDB.saveContainer({
   position:{groundPos:'A3',level:'3'},
   admissionDate:new Date('December 17, 1995 03:24:00'),
   productStage:'riping',
-  expirationDate:new Date('December 17, 1997 03:24:00')
+  description: 'Descript',
+  expirationDate:new Date('December 17, 1997 03:24:00'),
+  isEmpty: false
 });
 
 mongoDB.saveContainer({
@@ -36,8 +38,11 @@ mongoDB.saveContainer({
   position:{groundPos:'A3',level:'4'},
   admissionDate:new Date('December 17, 1995 03:24:00'),
   productStage:'riping',
-  expirationDate:new Date('December 17, 1998 03:24:00')
+  description: 'Descript',
+  expirationDate:new Date('December 17, 1998 03:24:00'),
+  isEmpty: true
 });
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

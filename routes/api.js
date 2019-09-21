@@ -85,4 +85,15 @@ router.get('/api/all', function(req, res, next){
   }
 });
 
+
+router.get('/api/list/category', function(req, res, next){
+  console.log("Inside get List");
+  let db = req.app.locals.db;
+  let fn = function(cc) {
+    res.send(cc);
+  };
+  db.getCategroryList(fn);
+});
+  
+
 module.exports = router;
