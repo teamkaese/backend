@@ -19,5 +19,16 @@ const mongoDB = new mongodb(uri);
 
 app.locals.db = mongoDB;
 
+mongoDB.getAllContainers();
+
+mongoDB.saveContainer({
+  id:'12123',
+  productCategory:'Emmentaler',
+  position:{groundPos:'A3',level:'3'},
+  admissionDate:new Date('December 17, 1995 03:24:00'),
+  productStage:'riping'
+});
+
+
 app.use('/', api)
 app.use(express.json());

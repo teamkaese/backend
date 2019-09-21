@@ -22,5 +22,9 @@ router.put('/api', function(req, res, next){
 
 });
 
+// Get all items
+router.get('/api/all', function(req, res, next){
+  
+});
 
 module.exports = router;
