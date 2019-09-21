@@ -32,7 +32,6 @@ function mongeDB (url) {
             cb(item);
         });
     };
-    this.update
 }
 
 module.exports = mongeDB;
