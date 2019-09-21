@@ -33,6 +33,10 @@ function mongeDB (url) {
             cb(item);
         });
     };
+    this.updateContainer = (contain) => {
+        const container = new Container(contain);
+        Container.updateOne(container);
+    };
 }
 
 module.exports = mongeDB;

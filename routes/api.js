@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+/**
+ * Get Endpont to test server
+ */
 router.get('/api', function(req, res, next) {
   res.json({status: "200"});
   console.log("From Client: " + req.body);
@@ -27,11 +30,14 @@ router.post('/api', function(req, res, next){
     description: req.body.description,
     storageNumber: req.body.number, // Lagerplatz
     admissionDate: new Date(), // Timestamp
-    expirationDay: req.body.expirationDay
+    expirationDay: req.body.expirationDay // expirate Day
   });
   res.json({status: "200"});
 });
 
+/**
+ * Delete container request
+ */
 router.delete('/api/container/:id', function(req, res, next){
   console.log(req.params.id);
   let db = req.app.locals.db;
@@ -39,7 +45,22 @@ router.delete('/api/container/:id', function(req, res, next){
   res.json({status: "204"});
 });
 
+/**
+ * Update http request
+ */
 router.put('/api', function(req, res, next){
+  console.log("Inside Update");
+  let db = req.app.locals.db;
+
+  db.updateContainer({
+    id: req.body.id, // QRCOde Prodcut
+    productCategory: req.body.productCategory, //Art des Produkts Käse
+    description: req.body.description,
+    storageNumber: req.body.number, // Lagerplatz
+    admissionDate: new Date(), // Timestamp
+    expirationDay: req.body.expirationDay // expirate Day
+  });
+  res.json({status: "204"});
 
 });
 
