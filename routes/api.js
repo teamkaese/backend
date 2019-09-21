@@ -17,12 +17,16 @@ router.get('/api/get/:id', function(req, res, next){
 
 router.post('/api', function(req, res, next){
   let db = req.app.locals.db;
+  console.log(req.body);
+  req.body.id;
+  
   db.saveContainer({
-    id:'12123',
-    productCategory:'Emmentaler',
-    position:{groundPos:'A3',level:'3'},
-    admissionDate:new Date('December 17, 1995 03:24:00'),
-    productStage:'riping'
+    id: req.body.id, // QRCOde Prodcut
+    productCategory: req.body.productCategory, //Art des Produkts Käse
+    description: req.body.description,
+    storageNumber: req.body.number, // Lagerplatz
+    admissionDate: new Date(), // Timestamp
+    expirationDay: req.body.expirationDay
   });
   res.json({status: "200"});
 });
