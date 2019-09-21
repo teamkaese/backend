@@ -12,9 +12,9 @@ function mongeDB (url) {
                                                  admissionDate:Date,
                                                  productStage:String})
 
-    this.saveContainer = (container) => {
-        const conatiner = new Container(container);
-        conatiner.save().then(() => console.log('saved'));
+    this.saveContainer = (contain) => {
+        const container = new Container(contain);
+        container.save().then(() => console.log('saved'));
     };    
 
 }
