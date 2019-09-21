@@ -15,7 +15,13 @@ function mongeDB (url) {
     this.saveContainer = (container) => {
         const conatiner = new Container(container);
         conatiner.save().then(() => console.log('saved'));
-    };    
+    };
+
+    this.getAllContainers = () => {
+       Container.find({}, function(err, arr) {
+            console.log(arr);
+        });
+    } 
 
 }
 

@@ -20,6 +20,8 @@ const uri = "mongodb://localhost:27017/warehouse";
 
 const mongoDB = new mongodb(uri);
 
+mongoDB.getAllContainers();
+
 mongoDB.saveContainer({
   id:'12123',
   productCategory:'Emmentaler',
@@ -28,7 +30,6 @@ mongoDB.saveContainer({
   productStage:'riping'
 });
 
-mongoose.connect(uri);
 
 app.use('/', api)
 app.use(express.json());
