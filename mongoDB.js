@@ -9,7 +9,7 @@ function mongeDB (url) {
                                                  position: {groundPos: String, level: String},
                                                  description: String,
                                                  storageNumber: String,
-                                                 expirationDay: Date,
+                                                 expirationDate: Date,
                                                  admissionDate: Date,
                                                  productStage: String,
                                                  isEmpty: Boolean})
